@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+::selection {
+  background-color: #1D88B8;
+  color: #ffffff;
+}
+
+/* Visible keyboard focus */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid #1D88B8;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.eyebrow {
+  @apply font-utility text-xs tracking-[0.2em] uppercase text-blue-bright font-semibold;
+}
+
+.h-display {
+  @apply font-display text-ink;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.68);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.container-x {
+  @apply mx-auto max-w-7xl px-5 sm:px-8 lg:px-12;
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 rounded-full bg-blue-deep px-7 py-3.5 font-body font-semibold text-white shadow-card transition-all duration-300 hover:bg-blue-bright hover:shadow-card-hover hover:-translate-y-0.5;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center gap-2 rounded-full border-2 border-blue-deep/20 bg-white px-7 py-3.5 font-body font-semibold text-blue-deep transition-all duration-300 hover:border-blue-deep hover:-translate-y-0.5;
+}
+
+.btn-ghost {
+  @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-body font-semibold text-blue-deep transition-colors hover:text-blue-bright;
+}
+
+.card-surface {
+  @apply rounded-xl2 border border-grey-mist bg-white shadow-card transition-all duration-300;
+}
+
+.card-surface:hover {
+  @apply shadow-card-hover -translate-y-1;
+}
+
+/* Signature element: the ECG "pulse line" divider used across the site */
+.pulse-divider path {
+  stroke-dasharray: 6 10;
+  animation: pulseLine 3.2s ease-in-out infinite;
+}
